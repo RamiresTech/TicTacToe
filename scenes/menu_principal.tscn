@@ -1,0 +1,107 @@
+[gd_scene load_steps=5 format=3 uid="uid://c6dkakoax5ihj"]
+
+[ext_resource type="Script" path="res://scripts/menu_principal.gd" id="1_20gab"]
+[ext_resource type="Texture2D" uid="uid://dncxfdf5pf0q4" path="res://assets/BG/BigPanel.jpg" id="2_sp010"]
+[ext_resource type="Texture2D" uid="uid://xw5iolqgak7w" path="res://assets/images/Cell01.png" id="3_f6aox"]
+[ext_resource type="PackedScene" uid="uid://bhv61p8wqqqlh" path="res://scenes/transition.tscn" id="4_u2s1m"]
+
+[node name="MenuPrincipal" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_20gab")
+
+[node name="Transition" parent="." instance=ExtResource("4_u2s1m")]
+transiction_type = 1
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_sp010")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 48
+theme_override_constants/margin_top = 48
+theme_override_constants/margin_right = 48
+theme_override_constants/margin_bottom = 48
+
+[node name="Title" type="Label" parent="MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0
+theme_override_font_sizes/font_size = 64
+text = "LO-FI TIC TAC TOE"
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 8
+theme_override_constants/separation = 16
+
+[node name="StartButton" type="TextureButton" parent="MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(400, 80)
+layout_mode = 2
+texture_normal = ExtResource("3_f6aox")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/StartButton"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -11.5
+offset_right = 20.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 48
+text = "COMEÇAR"
+horizontal_alignment = 1
+
+[node name="QuitButton" type="TextureButton" parent="MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(400, 80)
+layout_mode = 2
+texture_normal = ExtResource("3_f6aox")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/QuitButton"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -71.5
+offset_top = -35.0
+offset_right = 71.5
+offset_bottom = 35.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 48
+text = "SAIR"
+horizontal_alignment = 1
+
+[connection signal="button_up" from="MarginContainer/VBoxContainer/StartButton" to="." method="_on_start_button_button_up"]
+[connection signal="mouse_entered" from="MarginContainer/VBoxContainer/StartButton" to="." method="_on_start_button_mouse_entered"]
+[connection signal="mouse_exited" from="MarginContainer/VBoxContainer/StartButton" to="." method="_on_start_button_mouse_exited"]
+[connection signal="button_up" from="MarginContainer/VBoxContainer/QuitButton" to="." method="_on_quit_button_button_up"]
+[connection signal="mouse_entered" from="MarginContainer/VBoxContainer/QuitButton" to="." method="_on_quit_button_mouse_entered"]
+[connection signal="mouse_exited" from="MarginContainer/VBoxContainer/QuitButton" to="." method="_on_quit_button_mouse_exited"]
