@@ -57,7 +57,7 @@ vertical_alignment = 1
 layout_mode = 2
 theme = ExtResource("4_gwjdf")
 theme_override_font_sizes/font_size = 24
-text = "Player 1"
+text = "Jogador Um"
 placeholder_text = "Digite seu nome"
 
 [node name="VBoxContainer2" type="VBoxContainer" parent="MarginContainer/VBoxContainer"]
@@ -75,7 +75,7 @@ vertical_alignment = 1
 layout_mode = 2
 theme = ExtResource("4_gwjdf")
 theme_override_font_sizes/font_size = 24
-text = "Player 2"
+text = "Jogador Dois"
 placeholder_text = "Digite seu nome"
 
 [node name="PlayButton" type="TextureButton" parent="MarginContainer"]

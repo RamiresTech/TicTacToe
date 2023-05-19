@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://gv3ryl73lna5"
+path="res://.godot/imported/Calm Down.wav-73736c143a2efc28c150fed4d4e804f9.sample"
+
+[deps]
+
+source_file="res://assets/sounds/musics/Calm Down.wav"
+dest_files=["res://.godot/imported/Calm Down.wav-73736c143a2efc28c150fed4d4e804f9.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

@@ -6,6 +6,7 @@ const TRANSITION_TIME: float = 3
 const MUSICS_FOLDER_PATH: String = "res://assets/sounds/musics/"
 
 var music_player: AudioStreamPlayer
+var actual_music: String
 
 func _ready():
 	music_player = AudioStreamPlayer.new()
@@ -35,6 +36,7 @@ func __get_random_wav_file_from_folder() -> String:
 	return MUSICS_FOLDER_PATH + wav_files[random_index]
 
 func __change_music(new_music: String):
+	actual_music = new_music.replace(".wav", "")
 	var tween = get_tree().create_tween()
 	if music_player.playing:
 		for i in range(60):
