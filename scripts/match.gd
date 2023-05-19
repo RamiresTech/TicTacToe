@@ -8,11 +8,11 @@ const WIN_SOUND: AudioStream = preload("res://assets/sounds/effects/sucess.mp3")
 const VICTORY_SOUND: AudioStream = preload("res://assets/sounds/effects/game-win.mp3")
 
 @onready var board: Board = %Board
-@onready var player_one_name: Label = $MarginContainer/VFlowContainer/NamePlayer
-@onready var player_one_score: Label = $MarginContainer/VFlowContainer/ScorePlayer
-@onready var player_two_name: Label = $MarginContainer/VFlowContainer2/NamePlayer
-@onready var player_two_score: Label = $MarginContainer/VFlowContainer2/ScorePlayer
-@onready var info_label: Label = $MarginContainer/Label
+@onready var player_one_name: Label = $MarginContainer/HBoxContainer/Player1/NamePlayer
+@onready var player_one_score: Label = $MarginContainer/HBoxContainer/Player1/ScorePlayer
+@onready var player_two_name: Label = $MarginContainer/HBoxContainer/Player2/NamePlayer
+@onready var player_two_score: Label = $MarginContainer/HBoxContainer/Player2/ScorePlayer
+@onready var info_label: Label = $MarginContainer/VBoxContainer/Label
 @onready var transition: Transition = $Transition
 @onready var background: RandomBackground = $BG
 @onready var sounds_player: AudioStreamPlayer2D = $Sounds

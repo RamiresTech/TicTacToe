@@ -1,14 +1,215 @@
-[gd_scene format=3 uid="uid://d2ndul88o1vvh"]
+[gd_scene load_steps=12 format=3 uid="uid://d2ndul88o1vvh"]
+
+[ext_resource type="Texture2D" uid="uid://c7pionar5citr" path="res://assets/images/GUI/GreenPressed.png" id="1_e0an8"]
+[ext_resource type="Script" path="res://scripts/music_tag.gd" id="1_ndk60"]
+[ext_resource type="Texture2D" uid="uid://digtmvm1c72ov" path="res://assets/images/headphone.png" id="2_1hpuj"]
+[ext_resource type="Texture2D" uid="uid://djvsngfd8vxco" path="res://assets/images/GUI/Green.png" id="2_crpic"]
+[ext_resource type="Texture2D" uid="uid://77rsr7jqruhh" path="res://assets/images/GUI/Green-hover.png" id="4_xhnqq"]
+[ext_resource type="Theme" uid="uid://5cftpimujwbs" path="res://themes/lo-fi.tres" id="6_guo52"]
+[ext_resource type="Texture2D" uid="uid://cigw1aii0rhps" path="res://assets/images/GUI/fastForward.png" id="7_p2w45"]
+
+[sub_resource type="Animation" id="Animation_604iv"]
+resource_name = "open"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Button/MarginContainer/HBoxContainer/Label:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Button:custom_minimum_size")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(50, 50), Vector2(550, 50)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Button/MarginContainer/HBoxContainer/NextButton:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+
+[sub_resource type="Animation" id="Animation_tphft"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Button/MarginContainer/HBoxContainer/Label:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Button:custom_minimum_size")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(50, 50)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Button/MarginContainer/HBoxContainer/NextButton:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_4g8e0"]
+resource_name = "close"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Button/MarginContainer/HBoxContainer/Label:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Button:custom_minimum_size")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(550, 50), Vector2(50, 50)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Button/MarginContainer/HBoxContainer/NextButton:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ngfjo"]
+_data = {
+"RESET": SubResource("Animation_tphft"),
+"close": SubResource("Animation_4g8e0"),
+"open": SubResource("Animation_604iv")
+}
 
 [node name="MusicTag" type="Control"]
 layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 8
+script = ExtResource("1_ndk60")
+
+[node name="Button" type="TextureButton" parent="."]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+texture_normal = ExtResource("2_crpic")
+texture_pressed = ExtResource("1_e0an8")
+texture_hover = ExtResource("4_xhnqq")
+ignore_texture_size = true
+stretch_mode = 0
 
-[node name="TextureRect" type="TextureRect" parent="."]
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
+[node name="MarginContainer" type="MarginContainer" parent="Button"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 5
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Button/MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 16
+
+[node name="TextureRect" type="TextureRect" parent="Button/MarginContainer/HBoxContainer"]
+modulate = Color(0.0823529, 0.0823529, 0.0823529, 1)
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 4
+texture = ExtResource("2_1hpuj")
+expand_mode = 1
+
+[node name="Label" type="Label" parent="Button/MarginContainer/HBoxContainer"]
+visible = false
+modulate = Color(0, 0, 0, 1)
+layout_mode = 2
+theme = ExtResource("6_guo52")
+theme_override_font_sizes/font_size = 24
+text = "Music Name"
+vertical_alignment = 2
+
+[node name="NextButton" type="TextureButton" parent="Button/MarginContainer/HBoxContainer"]
+visible = false
+modulate = Color(0.0823529, 0.0823529, 0.0823529, 1)
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 4
+texture_normal = ExtResource("7_p2w45")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_ngfjo")
+}
+
+[connection signal="button_up" from="Button" to="." method="_on_button_button_up"]
+[connection signal="button_up" from="Button/MarginContainer/HBoxContainer/NextButton" to="." method="_on_next_button_button_up"]
+[connection signal="mouse_entered" from="Button/MarginContainer/HBoxContainer/NextButton" to="." method="_on_next_button_mouse_entered"]
+[connection signal="mouse_exited" from="Button/MarginContainer/HBoxContainer/NextButton" to="." method="_on_next_button_mouse_exited"]

@@ -36,7 +36,7 @@ func __get_random_wav_file_from_folder() -> String:
 	return MUSICS_FOLDER_PATH + wav_files[random_index]
 
 func __change_music(new_music: String):
-	actual_music = new_music.replace(".wav", "")
+	actual_music = new_music.replace(".wav", "").replace(MUSICS_FOLDER_PATH, "")
 	var tween = get_tree().create_tween()
 	if music_player.playing:
 		for i in range(60):
