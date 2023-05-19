@@ -8,6 +8,10 @@ const HOVER_COLOR: Color = Color(Color.WHITE, 0.5)
 @onready var start_button: TextureButton = $MarginContainer/VBoxContainer/StartButton
 @onready var quit_button: TextureButton = $MarginContainer/VBoxContainer/QuitButton
 @onready var transition: Transition = $Transition
+@onready var button_sounds: AudioStreamPlayer2D = $ButtonSounds
+
+func _ready() -> void:
+	MusicPlayer.play_random_music()
 
 
 func _on_start_button_mouse_entered() -> void:
@@ -31,6 +35,7 @@ func _on_quit_button_button_up() -> void:
 
 
 func _on_start_button_button_up() -> void:
+	button_sounds.play()
 	transition.play_in()
 	await transition.animation.animation_finished
 	get_tree().change_scene_to_file(Game.PLAYER_REGISTER_SCREEN)

@@ -1,28 +1,23 @@
-[gd_scene load_steps=5 format=3 uid="uid://bb4copof6jp4j"]
+[gd_scene load_steps=7 format=3 uid="uid://bb4copof6jp4j"]
 
 [ext_resource type="PackedScene" uid="uid://bsf0gyjo6s7qy" path="res://scenes/board.tscn" id="1_1emwc"]
 [ext_resource type="Script" path="res://scripts/match.gd" id="1_bh7ah"]
-[ext_resource type="Texture2D" uid="uid://dncxfdf5pf0q4" path="res://assets/BG/BigPanel.jpg" id="1_edqk2"]
 [ext_resource type="PackedScene" uid="uid://bhv61p8wqqqlh" path="res://scenes/transition.tscn" id="2_u5tcu"]
+[ext_resource type="PackedScene" uid="uid://dx4mnm01wxkgx" path="res://scenes/random_background.tscn" id="3_aeu7x"]
+[ext_resource type="Theme" uid="uid://cc51a4y3vvhva" path="res://themes/poppin-light.tres" id="5_qb2cq"]
+[ext_resource type="Theme" uid="uid://bwpn5pa28vvxk" path="res://themes/poppins-bold.tres" id="6_hfc2n"]
 
 [node name="Match" type="Node2D"]
 script = ExtResource("1_bh7ah")
 
 [node name="Transition" parent="." instance=ExtResource("2_u5tcu")]
 visible = false
-transiction_type = 3
+transiction_type = 4
+duration = 2.0
 
-[node name="TextureRect" type="TextureRect" parent="."]
-custom_minimum_size = Vector2(1080, 720)
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
+[node name="BG" parent="." instance=ExtResource("3_aeu7x")]
 offset_right = 1080.0
 offset_bottom = 720.0
-grow_horizontal = 2
-grow_vertical = 2
-texture = ExtResource("1_edqk2")
-expand_mode = 1
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 anchors_preset = 15
@@ -55,6 +50,7 @@ theme_override_constants/h_separation = 16
 layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 0
+theme = ExtResource("5_qb2cq")
 theme_override_font_sizes/font_size = 24
 text = "Nome Player 1"
 
@@ -76,6 +72,7 @@ theme_override_constants/h_separation = 16
 layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 0
+theme = ExtResource("5_qb2cq")
 theme_override_font_sizes/font_size = 24
 text = "Nome Player 2"
 
@@ -93,8 +90,11 @@ custom_minimum_size = Vector2(800, 80)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 8
+theme = ExtResource("6_hfc2n")
 theme_override_font_sizes/font_size = 48
 text = "VENCEU"
 horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 2
+
+[node name="Sounds" type="AudioStreamPlayer2D" parent="."]

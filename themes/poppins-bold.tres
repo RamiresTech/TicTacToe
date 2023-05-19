@@ -1,0 +1,6 @@
+[gd_resource type="Theme" load_steps=2 format=3 uid="uid://bwpn5pa28vvxk"]
+
+[ext_resource type="FontFile" uid="uid://cdlk4ved23sab" path="res://assets/Fonts/Poppins-Black.ttf" id="1_0vw7w"]
+
+[resource]
+default_font = ExtResource("1_0vw7w")

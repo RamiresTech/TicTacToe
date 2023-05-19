@@ -3,6 +3,9 @@ extends Node2D
 const WINNER_COLOR: Color = Color.GREEN
 const LOSER_COLOR: Color = Color.RED
 const NORMAL_COLOR: Color = Color.WHITE
+const TIE_SOUND: AudioStream = preload("res://assets/sounds/effects/empate.wav")
+const WIN_SOUND: AudioStream = preload("res://assets/sounds/effects/sucess.mp3")
+const VICTORY_SOUND: AudioStream = preload("res://assets/sounds/effects/game-win.mp3")
 
 @onready var board: Board = %Board
 @onready var player_one_name: Label = $MarginContainer/VFlowContainer/NamePlayer
@@ -11,9 +14,12 @@ const NORMAL_COLOR: Color = Color.WHITE
 @onready var player_two_score: Label = $MarginContainer/VFlowContainer2/ScorePlayer
 @onready var info_label: Label = $MarginContainer/Label
 @onready var transition: Transition = $Transition
+@onready var background: RandomBackground = $BG
+@onready var sounds_player: AudioStreamPlayer2D = $Sounds
 
 
 func _ready() -> void:
+	MusicPlayer.play_random_music()
 	board.end_turn.connect(__change_turn)
 	board.have_a_tie.connect(__have_a_tie)
 	board.have_a_winner.connect(__have_a_winner)
@@ -35,19 +41,22 @@ func _process(delta: float) -> void:
 func __change_turn() -> void:
 	Game.change_player_in_turn()
 
+
 func __have_a_tie():
 	board.block_all()
 	info_label.text = "Empate"
 	info_label.modulate = LOSER_COLOR
 	info_label.show()
+	__play_sound(TIE_SOUND)
 	Game.score_tie()
 	check_game_over()
 
 func __have_a_winner(winner: Game.cell_state) -> void:
 	board.block_all()
-	info_label.text = Game.players[winner].player_name + " venceu essa partida!"
+	info_label.text = Game.players[winner].player_name + "  venceu essa partida!"
 	info_label.modulate = WINNER_COLOR
 	info_label.show()
+	__play_sound(WIN_SOUND)
 	Game.score_player_with_state(winner)
 	check_game_over()
 
@@ -68,16 +77,23 @@ func game_over() -> void:
 	if score1 == score2:
 		info_label.text = "O jogo terminou empatado, parabens aos competidores!"
 	elif score1 > score2:
-		info_label.text = Game.players[Game.cell_state.X].player_name + " é o grande Campeão! Parabens!"
+		info_label.text = Game.players[Game.cell_state.X].player_name + "  é o grande Campeão! Parabens!"
 	else:
-		info_label.text = Game.players[Game.cell_state.CIRCLE].player_name + " é o grande Campeão! Parabens!"
+		info_label.text = Game.players[Game.cell_state.CIRCLE].player_name + "  é o grande Campeão! Parabens!"
+	__play_sound(VICTORY_SOUND)
 	await get_tree().create_timer(2).timeout
 
 	transition.play_in()
 	await transition.animation.animation_finished
+	MusicPlayer.play_random_music()
 	get_tree().change_scene_to_file(Game.MAIN_MENU)
 
 
 func end_of_match() -> void:
 	info_label.hide()
 	board.clear_all()
+	background.select_a_random_image()
+
+func __play_sound(sound: AudioStream) -> void:
+	sounds_player.stream = sound
+	sounds_player.play()

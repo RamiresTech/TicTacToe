@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://dx4mnm01wxkgx"]
+
+[ext_resource type="Texture2D" uid="uid://g3nenoojdhmg" path="res://assets/BG/ImNmTNGHSn2RGujxWj4Qhg-AfxoVFOWTA2PCbUD2XA3Ng-bQzky_MJTWahs_vCz1shYw.png" id="1_6fwrr"]
+[ext_resource type="Script" path="res://scripts/random_background.gd" id="2_8jvsa"]
+
+[node name="BG" type="TextureRect"]
+modulate = Color(1, 1, 1, 0.498039)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_6fwrr")
+script = ExtResource("2_8jvsa")

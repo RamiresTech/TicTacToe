@@ -14,13 +14,8 @@ enum cell_state{
 	EMPTY
 	}
 
-var player1 = Player.new("John")
-var player2 = Player.new("Marie")
 
-var players: Dictionary = {
-		cell_state.X: player1,
-		cell_state.CIRCLE: player2
-	}
+var players: Dictionary = {}
 
 var player_in_turn: cell_state = cell_state.X
 

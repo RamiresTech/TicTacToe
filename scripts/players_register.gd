@@ -7,6 +7,7 @@ const HOVER_COLOR: Color = Color(Color.WHITE, 0.5)
 @onready var player_two_name: LineEdit = $MarginContainer/VBoxContainer/VBoxContainer2/LineEdit
 @onready var play_button: TextureButton = $MarginContainer/PlayButton
 @onready var transition: Transition = $Transition
+@onready var button_sounds: AudioStreamPlayer2D = $ButtonSounds
 
 
 
@@ -21,6 +22,7 @@ func _on_play_button_button_up() -> void:
 
 	Game.players = players
 
+	button_sounds.play()
 	transition.play_in()
 	await transition.animation.animation_finished
 	get_tree().change_scene_to_file(Game.MATCH_SCREEN)

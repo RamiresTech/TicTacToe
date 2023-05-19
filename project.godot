@@ -11,13 +11,14 @@ config_version=5
 [application]
 
 config/name="TicTacToe"
-run/main_scene="res://scenes/menu_principal.tscn"
+run/main_scene="res://scenes/splash_screen.tscn"
 config/features=PackedStringArray("4.0", "Forward Plus")
 config/icon="res://icon.svg"
 
 [autoload]
 
 Game="*res://scripts/game.gd"
+MusicPlayer="*res://scripts/music_player.gd"
 
 [display]
 
