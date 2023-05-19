@@ -1,11 +1,13 @@
-[gd_scene load_steps=8 format=3 uid="uid://b53cbt5nex17b"]
+[gd_scene load_steps=10 format=3 uid="uid://b53cbt5nex17b"]
 
 [ext_resource type="Script" path="res://scripts/players_register.gd" id="1_xssul"]
 [ext_resource type="PackedScene" uid="uid://bhv61p8wqqqlh" path="res://scenes/transition.tscn" id="2_7ihi3"]
 [ext_resource type="PackedScene" uid="uid://dx4mnm01wxkgx" path="res://scenes/random_background.tscn" id="3_n2v8l"]
 [ext_resource type="Theme" uid="uid://cc51a4y3vvhva" path="res://themes/poppin-light.tres" id="4_gwjdf"]
+[ext_resource type="Theme" uid="uid://5cftpimujwbs" path="res://themes/lo-fi.tres" id="4_ys833"]
 [ext_resource type="Texture2D" uid="uid://djvsngfd8vxco" path="res://assets/images/GUI/Green.png" id="5_ols20"]
 [ext_resource type="Texture2D" uid="uid://c7pionar5citr" path="res://assets/images/GUI/GreenPressed.png" id="6_eqpdx"]
+[ext_resource type="Texture2D" uid="uid://77rsr7jqruhh" path="res://assets/images/GUI/Green-hover.png" id="7_fbhe3"]
 [ext_resource type="AudioStream" uid="uid://q2gbs4jxjh21" path="res://assets/sounds/effects/UI Soundpack/OGG/Modern3.ogg" id="7_okasx"]
 
 [node name="PlayersRegister" type="Control"]
@@ -46,7 +48,7 @@ theme_override_constants/separation = 16
 
 [node name="Label" type="Label" parent="MarginContainer/VBoxContainer/VBoxContainer"]
 layout_mode = 2
-theme = ExtResource("4_gwjdf")
+theme = ExtResource("4_ys833")
 theme_override_font_sizes/font_size = 32
 text = "Nome do player que jogara com X"
 vertical_alignment = 1
@@ -64,7 +66,7 @@ theme_override_constants/separation = 16
 
 [node name="Label" type="Label" parent="MarginContainer/VBoxContainer/VBoxContainer2"]
 layout_mode = 2
-theme = ExtResource("4_gwjdf")
+theme = ExtResource("4_ys833")
 theme_override_font_sizes/font_size = 32
 text = "Nome do player que jogara com circulo"
 vertical_alignment = 1
@@ -83,6 +85,7 @@ size_flags_horizontal = 4
 size_flags_vertical = 8
 texture_normal = ExtResource("5_ols20")
 texture_pressed = ExtResource("6_eqpdx")
+texture_hover = ExtResource("7_fbhe3")
 ignore_texture_size = true
 stretch_mode = 0
 
@@ -93,14 +96,13 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -20.0
-offset_top = -11.5
-offset_right = 20.0
-offset_bottom = 11.5
+offset_left = -76.0
+offset_top = -34.0
+offset_right = 76.0
+offset_bottom = 34.0
 grow_horizontal = 2
 grow_vertical = 2
-theme = ExtResource("4_gwjdf")
-theme_override_font_sizes/font_size = 48
+theme = ExtResource("4_ys833")
 text = "JOGAR"
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -109,5 +111,3 @@ vertical_alignment = 1
 stream = ExtResource("7_okasx")
 
 [connection signal="button_up" from="MarginContainer/PlayButton" to="." method="_on_play_button_button_up"]
-[connection signal="mouse_entered" from="MarginContainer/PlayButton" to="." method="_on_play_button_mouse_entered"]
-[connection signal="mouse_exited" from="MarginContainer/PlayButton" to="." method="_on_play_button_mouse_exited"]

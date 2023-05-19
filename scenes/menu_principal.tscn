@@ -1,13 +1,292 @@
-[gd_scene load_steps=9 format=3 uid="uid://c6dkakoax5ihj"]
+[gd_scene load_steps=15 format=3 uid="uid://c6dkakoax5ihj"]
 
 [ext_resource type="Script" path="res://scripts/menu_principal.gd" id="1_20gab"]
 [ext_resource type="PackedScene" uid="uid://dx4mnm01wxkgx" path="res://scenes/random_background.tscn" id="3_8aut3"]
 [ext_resource type="PackedScene" uid="uid://bhv61p8wqqqlh" path="res://scenes/transition.tscn" id="4_u2s1m"]
-[ext_resource type="Theme" uid="uid://bwpn5pa28vvxk" path="res://themes/poppins-bold.tres" id="4_yypc3"]
 [ext_resource type="Texture2D" uid="uid://djvsngfd8vxco" path="res://assets/images/GUI/Green.png" id="5_mjnkl"]
 [ext_resource type="Texture2D" uid="uid://c7pionar5citr" path="res://assets/images/GUI/GreenPressed.png" id="6_3kggx"]
-[ext_resource type="Theme" uid="uid://cc51a4y3vvhva" path="res://themes/poppin-light.tres" id="7_6wpv6"]
+[ext_resource type="Texture2D" uid="uid://77rsr7jqruhh" path="res://assets/images/GUI/Green-hover.png" id="7_twadt"]
+[ext_resource type="Theme" uid="uid://5cftpimujwbs" path="res://themes/lo-fi.tres" id="7_vciow"]
 [ext_resource type="AudioStream" uid="uid://c3s4ccpbepmox" path="res://assets/sounds/effects/UI Soundpack/OGG/Modern7.ogg" id="8_s0fns"]
+[ext_resource type="Texture2D" uid="uid://cg8anqsqnuoy" path="res://assets/images/LO-FI Tic tac toe.png" id="8_y6sap"]
+[ext_resource type="Texture2D" uid="uid://bhpljtpyvxn0e" path="res://assets/images/instagram.png" id="9_ywowh"]
+[ext_resource type="Texture2D" uid="uid://du4a87vxi1owp" path="res://assets/images/linkedin.png" id="10_y6ve3"]
+
+[sub_resource type="Animation" id="Animation_u1g3r"]
+resource_name = "start"
+length = 3.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("MarginContainer/TextureRect:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1, 2.9, 3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(230, 336), Vector2(230, 336), Vector2(48, 120), Vector2(48, 120)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("MarginContainer/TextureRect:size")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1, 2.9, 3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(620, 120), Vector2(620, 120), Vector2(620, 120), Vector2(620, 120)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("MarginContainer/VBoxContainer/StartButton:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 2.1, 3),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("MarginContainer/VBoxContainer/QuitButton:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 2.1, 3),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("MarginContainer/VBoxContainer/QuitButton:visible")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 2.1, 3),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [false, true, true]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("MarginContainer/VBoxContainer/StartButton:visible")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 2.1, 3),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [false, true, true]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("ColorRect:visible")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("ColorRect:modulate")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0, 1, 2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("MarginContainer/TextureRect:modulate")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0, 0.3, 0.8),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/9/type = "method"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath(".")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(),
+"transitions": PackedFloat32Array(),
+"values": []
+}
+tracks/10/type = "value"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath("MarginContainer/HBoxContainer:visible")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = {
+"times": PackedFloat32Array(0, 3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+
+[sub_resource type="Animation" id="Animation_gqpot"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("MarginContainer/TextureRect:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(48, 120)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("MarginContainer/TextureRect:size")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(620, 120)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("MarginContainer/TextureRect:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("MarginContainer/TextureRect:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("MarginContainer/HBoxContainer:visible")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("MarginContainer/VBoxContainer/StartButton:visible")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("MarginContainer/VBoxContainer/StartButton:self_modulate")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("MarginContainer/VBoxContainer/QuitButton:visible")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("MarginContainer/VBoxContainer/QuitButton:modulate")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("ColorRect:visible")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/10/type = "value"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath("ColorRect:modulate")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_qjpbm"]
+_data = {
+"RESET": SubResource("Animation_gqpot"),
+"start": SubResource("Animation_u1g3r")
+}
 
 [node name="MenuPrincipal" type="Control"]
 layout_mode = 3
@@ -24,6 +303,16 @@ transiction_type = 1
 [node name="BG" parent="." instance=ExtResource("3_8aut3")]
 layout_mode = 1
 
+[node name="ColorRect" type="ColorRect" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.0705882, 0.0705882, 0.0705882, 1)
+
 [node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 1
 anchors_preset = 15
@@ -36,15 +325,6 @@ theme_override_constants/margin_top = 120
 theme_override_constants/margin_right = 48
 theme_override_constants/margin_bottom = 48
 
-[node name="Title" type="Label" parent="MarginContainer"]
-layout_mode = 2
-size_flags_horizontal = 0
-size_flags_vertical = 0
-theme = ExtResource("4_yypc3")
-theme_override_font_sizes/font_size = 56
-text = "Lo-Fi: Tic Tac Toe"
-uppercase = true
-
 [node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
 layout_mode = 2
 size_flags_horizontal = 8
@@ -56,6 +336,7 @@ custom_minimum_size = Vector2(400, 80)
 layout_mode = 2
 texture_normal = ExtResource("5_mjnkl")
 texture_pressed = ExtResource("6_3kggx")
+texture_hover = ExtResource("7_twadt")
 ignore_texture_size = true
 stretch_mode = 0
 
@@ -67,22 +348,24 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -125.0
-offset_top = -35.5
-offset_right = 125.0
-offset_bottom = 35.5
+offset_left = -126.0
+offset_top = -35.0
+offset_right = 124.0
+offset_bottom = 36.0
 grow_horizontal = 2
 grow_vertical = 2
-theme = ExtResource("7_6wpv6")
-theme_override_font_sizes/font_size = 48
+theme = ExtResource("7_vciow")
+theme_override_font_sizes/font_size = 64
 text = "Começar"
 horizontal_alignment = 2
+vertical_alignment = 1
 
 [node name="QuitButton" type="TextureButton" parent="MarginContainer/VBoxContainer"]
 custom_minimum_size = Vector2(400, 80)
 layout_mode = 2
 texture_normal = ExtResource("5_mjnkl")
 texture_pressed = ExtResource("6_3kggx")
+texture_hover = ExtResource("7_twadt")
 ignore_texture_size = true
 stretch_mode = 0
 
@@ -100,17 +383,48 @@ offset_right = 125.0
 offset_bottom = 35.5
 grow_horizontal = 2
 grow_vertical = 2
-theme = ExtResource("7_6wpv6")
-theme_override_font_sizes/font_size = 48
+theme = ExtResource("7_vciow")
 text = "Sair"
 horizontal_alignment = 2
+
+[node name="TextureRect" type="TextureRect" parent="MarginContainer"]
+custom_minimum_size = Vector2(620, 120)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+texture = ExtResource("8_y6sap")
+stretch_mode = 5
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 8
+theme_override_constants/separation = 16
+
+[node name="social" type="TextureButton" parent="MarginContainer/HBoxContainer"]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+texture_normal = ExtResource("9_ywowh")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="social2" type="TextureButton" parent="MarginContainer/HBoxContainer"]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+texture_normal = ExtResource("10_y6ve3")
+ignore_texture_size = true
+stretch_mode = 0
 
 [node name="ButtonSounds" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("8_s0fns")
 
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+autoplay = "start"
+libraries = {
+"": SubResource("AnimationLibrary_qjpbm")
+}
+
 [connection signal="button_up" from="MarginContainer/VBoxContainer/StartButton" to="." method="_on_start_button_button_up"]
-[connection signal="mouse_entered" from="MarginContainer/VBoxContainer/StartButton" to="." method="_on_start_button_mouse_entered"]
-[connection signal="mouse_exited" from="MarginContainer/VBoxContainer/StartButton" to="." method="_on_start_button_mouse_exited"]
 [connection signal="button_up" from="MarginContainer/VBoxContainer/QuitButton" to="." method="_on_quit_button_button_up"]
-[connection signal="mouse_entered" from="MarginContainer/VBoxContainer/QuitButton" to="." method="_on_quit_button_mouse_entered"]
-[connection signal="mouse_exited" from="MarginContainer/VBoxContainer/QuitButton" to="." method="_on_quit_button_mouse_exited"]
+[connection signal="button_up" from="MarginContainer/HBoxContainer/social" to="." method="_on_instagram_button_up"]
+[connection signal="button_up" from="MarginContainer/HBoxContainer/social2" to="." method="_on_linkedin_button_up"]

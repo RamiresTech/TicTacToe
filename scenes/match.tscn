@@ -4,7 +4,7 @@
 [ext_resource type="Script" path="res://scripts/match.gd" id="1_bh7ah"]
 [ext_resource type="PackedScene" uid="uid://bhv61p8wqqqlh" path="res://scenes/transition.tscn" id="2_u5tcu"]
 [ext_resource type="PackedScene" uid="uid://dx4mnm01wxkgx" path="res://scenes/random_background.tscn" id="3_aeu7x"]
-[ext_resource type="Theme" uid="uid://cc51a4y3vvhva" path="res://themes/poppin-light.tres" id="5_qb2cq"]
+[ext_resource type="Theme" uid="uid://5cftpimujwbs" path="res://themes/lo-fi.tres" id="5_1ybko"]
 [ext_resource type="Theme" uid="uid://bwpn5pa28vvxk" path="res://themes/poppins-bold.tres" id="6_hfc2n"]
 
 [node name="Match" type="Node2D"]
@@ -50,9 +50,9 @@ theme_override_constants/h_separation = 16
 layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 0
-theme = ExtResource("5_qb2cq")
-theme_override_font_sizes/font_size = 24
-text = "Nome Player 1"
+theme = ExtResource("5_1ybko")
+theme_override_font_sizes/font_size = 32
+text = "Nome Player ONe"
 
 [node name="ScorePlayer" type="Label" parent="MarginContainer/VFlowContainer"]
 layout_mode = 2
@@ -72,9 +72,9 @@ theme_override_constants/h_separation = 16
 layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 0
-theme = ExtResource("5_qb2cq")
-theme_override_font_sizes/font_size = 24
-text = "Nome Player 2"
+theme = ExtResource("5_1ybko")
+theme_override_font_sizes/font_size = 32
+text = "Nome Player Two"
 
 [node name="ScorePlayer" type="Label" parent="MarginContainer/VFlowContainer2"]
 layout_mode = 2
