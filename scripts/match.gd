@@ -16,6 +16,10 @@ const VICTORY_SOUND: AudioStream = preload("res://assets/sounds/effects/game-win
 @onready var transition: Transition = $Transition
 @onready var background: RandomBackground = $BG
 @onready var sounds_player: AudioStreamPlayer2D = $Sounds
+@onready var replay_cover: ColorRect = %ReplayCover
+@onready var result_label: Label = %ResultLabel
+@onready var replay_button: TextureButton = %ReplayButton
+@onready var main_menu_button: TextureButton = %MainMenuButton
 
 
 func _ready() -> void:
@@ -72,21 +76,23 @@ func game_over() -> void:
 	var score1 = Game.players[Game.cell_state.X].score
 	var score2 = Game.players[Game.cell_state.CIRCLE].score
 
-	info_label.modulate = WINNER_COLOR
+	result_label.modulate = WINNER_COLOR
 
+	var text_to_show = ""
 	if score1 == score2:
-		info_label.text = "O jogo terminou empatado, parabens aos competidores!"
+		text_to_show = "O jogo terminou empatado, parabens aos competidores!"
 	elif score1 > score2:
-		info_label.text = Game.players[Game.cell_state.X].player_name + "  é o grande Campeão! Parabens!"
+		text_to_show = Game.players[Game.cell_state.X].player_name + "  é o grande Campeão! Parabens!"
 	else:
-		info_label.text = Game.players[Game.cell_state.CIRCLE].player_name + "  é o grande Campeão! Parabens!"
-	__play_sound(VICTORY_SOUND)
-	await get_tree().create_timer(2).timeout
+		text_to_show = Game.players[Game.cell_state.CIRCLE].player_name + "  é o grande Campeão! Parabens!"
+	result_label.text = text_to_show
 
-	transition.play_in()
-	await transition.animation.animation_finished
-	MusicPlayer.play_random_music()
-	get_tree().change_scene_to_file(Game.MAIN_MENU)
+	replay_cover.show()
+
+	Game.players[Game.cell_state.X].score = 0
+	Game.players[Game.cell_state.CIRCLE].score = 0
+
+	__play_sound(VICTORY_SOUND)
 
 
 func end_of_match() -> void:
@@ -97,3 +103,35 @@ func end_of_match() -> void:
 func __play_sound(sound: AudioStream) -> void:
 	sounds_player.stream = sound
 	sounds_player.play()
+
+
+func _on_replay_button_mouse_entered() -> void:
+	replay_button.modulate = WINNER_COLOR
+
+
+func _on_replay_button_mouse_exited() -> void:
+	replay_button.modulate = NORMAL_COLOR
+
+
+func _on_main_menu_button_mouse_entered() -> void:
+	main_menu_button.modulate = WINNER_COLOR
+
+
+func _on_main_menu_button_mouse_exited() -> void:
+	main_menu_button.modulate = NORMAL_COLOR
+
+
+func _on_replay_button_pressed() -> void:
+	transition.play_in()
+	await transition.animation.animation_finished
+	MusicPlayer.play_random_music
+	replay_cover.hide()
+	get_tree().reload_current_scene()
+
+
+func _on_main_menu_button_pressed() -> void:
+	transition.play_in()
+	await transition.animation.animation_finished
+	MusicPlayer.play_random_music
+	replay_cover.hide()
+	get_tree().change_scene_to_file(Game.MAIN_MENU)

@@ -21,10 +21,10 @@ func end_of_turn() -> void:
 
 		if its_a_tie:
 			__have_a_tie()
-		else:
-			end_turn.emit()
 	else:
 		__have_a_winner(state_of_winner)
+
+	end_turn.emit()
 
 
 func __check_for_a_winner() -> Game.cell_state:
