@@ -3,7 +3,6 @@ extends Control
 
 @onready var player_one_name: LineEdit = $MarginContainer/VBoxContainer/VBoxContainer/LineEdit
 @onready var player_two_name: LineEdit = $MarginContainer/VBoxContainer/VBoxContainer2/LineEdit
-@onready var play_button: TextureButton = $MarginContainer/PlayButton
 @onready var transition: Transition = $Transition
 @onready var button_sounds: AudioStreamPlayer2D = $ButtonSounds
 

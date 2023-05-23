@@ -1,21 +1,24 @@
-[gd_scene load_steps=3 format=3 uid="uid://dmbs2vtn5n0gf"]
+[gd_scene load_steps=4 format=3 uid="uid://dmbs2vtn5n0gf"]
 
+[ext_resource type="Texture2D" uid="uid://dudjg0ix141dj" path="res://assets/images/GUI/TurquisePressedHover.png" id="1_44ryx"]
+[ext_resource type="Texture2D" uid="uid://3q3xe4n4nmod" path="res://assets/images/GUI/TurquisePressed.png" id="1_iww1e"]
 [ext_resource type="Script" path="res://scripts/cell.gd" id="2_en1av"]
 
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_0oblf"]
-load_path = "res://.godot/imported/SmallButtonTurqoisePressed.png-faee9b3f3d4e5275a4c99317b1d672d7.ctex"
-
 [node name="Cell" type="TextureButton"]
-modulate = Color(1, 1, 1, 0.498039)
 custom_minimum_size = Vector2(100, 100)
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_right = -980.0
-offset_bottom = -620.0
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -50.0
+offset_top = -50.0
+offset_right = 50.0
+offset_bottom = 50.0
 grow_horizontal = 2
 grow_vertical = 2
-texture_normal = SubResource("CompressedTexture2D_0oblf")
+texture_normal = ExtResource("1_iww1e")
+texture_hover = ExtResource("1_44ryx")
 ignore_texture_size = true
 stretch_mode = 0
 script = ExtResource("2_en1av")
@@ -37,7 +40,6 @@ grow_vertical = 2
 expand_mode = 1
 
 [node name="Sounds" type="AudioStreamPlayer2D" parent="."]
+volume_db = -25.0
 
 [connection signal="button_up" from="." to="." method="_on_button_up"]
-[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
-[connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]

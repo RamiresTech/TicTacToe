@@ -1,4 +1,5 @@
 extends Control
+class_name MusicTag
 
 
 @onready var animation: AnimationPlayer = $AnimationPlayer
@@ -8,7 +9,7 @@ extends Control
 var is_closed: bool = true
 
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	music_name_label.text = "Ouvindo: " + MusicPlayer.actual_music
 
 

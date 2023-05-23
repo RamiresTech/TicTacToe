@@ -16,8 +16,8 @@ func select_a_random_image():
 		var randomIndex = randi() % imageFiles.size()
 		var randomImage = imageFiles[randomIndex]
 
-		var texture = load(randomImage)
-		self.texture = texture
+		var random_texture = load(randomImage)
+		self.texture = random_texture
 
 func load_image_files():
 	var dir = DirAccess.open(imageFolder)
@@ -26,8 +26,9 @@ func load_image_files():
 		dir.list_dir_begin()
 		var file = dir.get_next()
 		while file != "":
-			if file.get_extension().to_lower() in ["png", "jpg", "jpeg"]:
-				imageFiles.append(imageFolder + file)
+			if file.get_extension().to_lower() in ["import"]:
+				file = file.replace(".import", "")
+				imageFiles.append(imageFolder.path_join(file))
 
 			file = dir.get_next()
 

@@ -24,5 +24,5 @@ func play_out() -> void:
 	animation.play("transiction_out")
 
 
-func _on_animation_animation_finished(anim_name: StringName) -> void:
+func _on_animation_animation_finished(_anim_name: StringName) -> void:
 	hide()

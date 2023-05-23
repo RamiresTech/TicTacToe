@@ -6,13 +6,14 @@ const NORMAL_COLOR: Color = Color.WHITE
 const TIE_SOUND: AudioStream = preload("res://assets/sounds/effects/empate.wav")
 const WIN_SOUND: AudioStream = preload("res://assets/sounds/effects/sucess.mp3")
 const VICTORY_SOUND: AudioStream = preload("res://assets/sounds/effects/game-win.mp3")
+const BUTTON_SOUNDS: AudioStream = preload("res://assets/sounds/effects/UI Soundpack/OGG/Modern3.ogg")
 
 @onready var board: Board = %Board
 @onready var player_one_name: Label = $MarginContainer/HBoxContainer/Player1/NamePlayer
 @onready var player_one_score: Label = $MarginContainer/HBoxContainer/Player1/ScorePlayer
 @onready var player_two_name: Label = $MarginContainer/HBoxContainer/Player2/NamePlayer
 @onready var player_two_score: Label = $MarginContainer/HBoxContainer/Player2/ScorePlayer
-@onready var info_label: Label = $MarginContainer/VBoxContainer/Label
+@onready var info_label: Label = %InformerLabel
 @onready var transition: Transition = $Transition
 @onready var background: RandomBackground = $BG
 @onready var sounds_player: AudioStreamPlayer2D = $Sounds
@@ -20,6 +21,7 @@ const VICTORY_SOUND: AudioStream = preload("res://assets/sounds/effects/game-win
 @onready var result_label: Label = %ResultLabel
 @onready var replay_button: TextureButton = %ReplayButton
 @onready var main_menu_button: TextureButton = %MainMenuButton
+@onready var music_tag: MusicTag = %MusicTag
 
 
 func _ready() -> void:
@@ -31,7 +33,7 @@ func _ready() -> void:
 	player_two_name.text = Game.players[Game.cell_state.CIRCLE].player_name
 
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	player_one_score.text = str(Game.players[Game.cell_state.X].score)
 	player_two_score.text = str(Game.players[Game.cell_state.CIRCLE].score)
 
@@ -50,6 +52,7 @@ func __have_a_tie():
 	board.block_all()
 	info_label.text = "Empate"
 	info_label.modulate = LOSER_COLOR
+	music_tag.hide()
 	info_label.show()
 	__play_sound(TIE_SOUND)
 	Game.score_tie()
@@ -59,6 +62,7 @@ func __have_a_winner(winner: Game.cell_state) -> void:
 	board.block_all()
 	info_label.text = Game.players[winner].player_name + "  venceu essa partida!"
 	info_label.modulate = WINNER_COLOR
+	music_tag.hide()
 	info_label.show()
 	__play_sound(WIN_SOUND)
 	Game.score_player_with_state(winner)
@@ -97,12 +101,21 @@ func game_over() -> void:
 
 func end_of_match() -> void:
 	info_label.hide()
+	music_tag.show()
 	board.clear_all()
 	background.select_a_random_image()
 
 func __play_sound(sound: AudioStream) -> void:
 	sounds_player.stream = sound
 	sounds_player.play()
+
+func __buttons_default_actions() -> void:
+	sounds_player.stream = BUTTON_SOUNDS
+	sounds_player.play()
+	transition.play_in()
+	await transition.animation.animation_finished
+	MusicPlayer.play_random_music()
+	replay_cover.hide()
 
 
 func _on_replay_button_mouse_entered() -> void:
@@ -122,16 +135,10 @@ func _on_main_menu_button_mouse_exited() -> void:
 
 
 func _on_replay_button_pressed() -> void:
-	transition.play_in()
-	await transition.animation.animation_finished
-	MusicPlayer.play_random_music
-	replay_cover.hide()
+	__buttons_default_actions()
 	get_tree().reload_current_scene()
 
 
 func _on_main_menu_button_pressed() -> void:
-	transition.play_in()
-	await transition.animation.animation_finished
-	MusicPlayer.play_random_music
-	replay_cover.hide()
+	__buttons_default_actions()
 	get_tree().change_scene_to_file(Game.MAIN_MENU)

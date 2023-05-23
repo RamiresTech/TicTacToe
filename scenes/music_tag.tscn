@@ -142,7 +142,7 @@ anchor_bottom = 0.5
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 4
-size_flags_vertical = 8
+size_flags_vertical = 4
 script = ExtResource("1_ndk60")
 
 [node name="Button" type="TextureButton" parent="."]

@@ -24,7 +24,8 @@ func __get_random_wav_file_from_folder() -> String:
 	var file_path = dir.get_next()
 
 	while file_path != "":
-		if file_path.get_extension().to_lower() == "wav":
+		if file_path.get_extension().to_lower() == "import":
+			file_path = file_path.replace(".import", "")
 			wav_files.append(file_path)
 		file_path = dir.get_next()
 
@@ -33,11 +34,10 @@ func __get_random_wav_file_from_folder() -> String:
 		return ""
 
 	var random_index = randi() % wav_files.size()
-	return MUSICS_FOLDER_PATH + wav_files[random_index]
+	return MUSICS_FOLDER_PATH.path_join(wav_files[random_index])
 
 func __change_music(new_music: String):
 	actual_music = new_music.replace(".wav", "").replace(MUSICS_FOLDER_PATH, "")
-	var tween = get_tree().create_tween()
 	if music_player.playing:
 		for i in range(60):
 			music_player.volume_db -= 1
@@ -46,6 +46,7 @@ func __change_music(new_music: String):
 		for i in range(60):
 			music_player.volume_db += 1
 			await get_tree().create_timer(0.025).timeout
+		music_player.volume_db = NORMAL_MUSIC_VOLUME
 	else:
 		music_player.stream = load(new_music)
 		music_player.volume_db = NORMAL_MUSIC_VOLUME

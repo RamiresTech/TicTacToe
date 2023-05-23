@@ -162,10 +162,10 @@ tracks/2/path = NodePath("ColorRect/RamiresPresentation:position")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
-"times": PackedFloat32Array(3.7, 4.6),
-"transitions": PackedFloat32Array(1, 1),
+"times": PackedFloat32Array(3.7, 3.8, 4.6),
+"transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
-"values": [Vector2(-995, 261), Vector2(230.5, 158.5)]
+"values": [Vector2(-872, 150), Vector2(-881, 128), Vector2(230.5, 44)]
 }
 tracks/3/type = "method"
 tracks/3/imported = false
@@ -206,7 +206,7 @@ tracks/5/keys = {
 "times": PackedFloat32Array(0, 0.4, 0.8, 0.9, 1, 1.2, 1.4, 2.6),
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
 "update": 0,
-"values": [Vector2(-200, 115), Vector2(-73, 117), Vector2(-200, 115), Vector2(-84, 22), Vector2(103, 135), Vector2(193, 172), Vector2(230, 212), Vector2(347, 156)]
+"values": [Vector2(-200, 115), Vector2(-73, 117), Vector2(-200, 115), Vector2(-84, 22), Vector2(103, 135), Vector2(193, 172), Vector2(230, 212), Vector2(347, 41.5)]
 }
 tracks/6/type = "value"
 tracks/6/imported = false

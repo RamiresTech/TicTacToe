@@ -23,23 +23,30 @@ script = ExtResource("1_xssul")
 
 [node name="BG" parent="." instance=ExtResource("3_n2v8l")]
 layout_mode = 1
+expand_mode = 1
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -336.5
+offset_top = -199.0
+offset_right = 336.5
+offset_bottom = 199.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/margin_left = 48
-theme_override_constants/margin_top = 48
+theme_override_constants/margin_top = 16
 theme_override_constants/margin_right = 48
-theme_override_constants/margin_bottom = 48
+theme_override_constants/margin_bottom = 16
 
 [node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
 layout_mode = 2
 size_flags_horizontal = 4
-size_flags_vertical = 4
+size_flags_vertical = 0
 theme_override_constants/separation = 48
 
 [node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer"]
@@ -78,7 +85,8 @@ theme_override_font_sizes/font_size = 24
 text = "Jogador Dois"
 placeholder_text = "Digite seu nome"
 
-[node name="PlayButton" type="TextureButton" parent="MarginContainer"]
+[node name="PlayButton" type="TextureButton" parent="MarginContainer/VBoxContainer"]
+unique_name_in_owner = true
 custom_minimum_size = Vector2(400, 80)
 layout_mode = 2
 size_flags_horizontal = 4
@@ -89,7 +97,7 @@ texture_hover = ExtResource("7_fbhe3")
 ignore_texture_size = true
 stretch_mode = 0
 
-[node name="Label" type="Label" parent="MarginContainer/PlayButton"]
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/PlayButton"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -110,4 +118,4 @@ vertical_alignment = 1
 [node name="ButtonSounds" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("7_okasx")
 
-[connection signal="button_up" from="MarginContainer/PlayButton" to="." method="_on_play_button_button_up"]
+[connection signal="button_up" from="MarginContainer/VBoxContainer/PlayButton" to="." method="_on_play_button_button_up"]

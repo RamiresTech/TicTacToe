@@ -10,7 +10,6 @@ const WINNER_COLOR: Color = Color.GREEN
 const LOSER_COLOR: Color = Color.RED
 const MARK_COLOR: Color = Color.BLACK
 const NORMAL_COLOR: Color = Color.WHITE
-const HOVER_COLOR: Color = Color(Color.WHITE, 0.5)
 
 @onready var audio: AudioStreamPlayer2D = $Sounds
 
@@ -34,21 +33,10 @@ func show_lose() -> void:
 	mark.modulate = LOSER_COLOR
 
 func clear() -> void:
-	modulate = HOVER_COLOR
 	mark.modulate = MARK_COLOR
 	mark.texture = null
 	is_selected = false
 	state = Game.cell_state.EMPTY
-
-
-func _on_mouse_entered() -> void:
-	if not is_selected:
-		modulate = NORMAL_COLOR
-
-
-func _on_mouse_exited() -> void:
-	if not is_selected:
-		modulate = HOVER_COLOR
 
 
 func _on_button_up() -> void:
